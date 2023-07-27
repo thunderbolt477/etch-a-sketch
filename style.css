@@ -1,0 +1,35 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 500px;
+  align-items: center;
+}
+
+.size-select {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+  margin: 15px 0;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  border: 2px solid black;
+}
