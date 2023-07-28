@@ -1,3 +1,5 @@
+let color = "black";
+
 document.addEventListener("DOMContentLoaded", function () {
   let btn = document.getElementById("select");
   btn.addEventListener("click", function () {
@@ -15,6 +17,7 @@ const createBoard = (size) => {
   let newDivs = size * size;
   for (i = 0; i < newDivs; i++) {
     let div = document.createElement("div");
+    div.addEventListener("mouseover", colorDiv);
     board.insertAdjacentElement("beforeend", div);
   }
 };
@@ -32,6 +35,20 @@ function getSize() {
     message.innerHTML = "Great!";
     return input;
   }
+}
+
+function colorDiv() {
+  if (color == "random") {
+    console.log("random");
+    this.style.backgroundColor = "#0b03fc";
+  } else {
+    console.log("black");
+    this.style.backgroundColor = "#8B0000";
+  }
+}
+
+function setColor(selectedColor) {
+  color = selectedColor;
 }
 
 // input.addEventListener("input", updateValue);
