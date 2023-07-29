@@ -23,17 +23,18 @@
     </div>
     <div class="size-select">
       <!-- <h5></h5> -->
-      <h5 id="message">select a size</h5>
+      <h5 id="message">Press select to choose a size for the board</h5>
       <button id="select" class="btn btn-primary" id="select">Select</button>
     </div>
+    <p id="draw"></p>
     <div class="container"></div>
 
     <div class="buttons">
       <button class="btn btn-dark" onclick="setColor('black')">Black</button>
       <button class="btn btn-warning" onclick="setColor('random')">
-        Random
+        Rainbow
       </button>
-      <button class="btn btn-danger">Reset</button>
+      <button class="btn btn-danger" onclick="reset()">Reset</button>
     </div>
     <script src="app.js"></script>
   </body>

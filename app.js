@@ -1,6 +1,21 @@
 let color = "black";
+let click = false;
 
 document.addEventListener("DOMContentLoaded", function () {
+  createBoard(16);
+
+  document.querySelector("body").addEventListener("click", function (e) {
+    if (e.target.tagName != "BUTTON") {
+      click = !click;
+      let draw = document.getElementById("draw");
+      if (click) {
+        draw.innerHTML = "Etch-A-Sketch is on!";
+      } else {
+        draw.innerHTML = "Etch-A-Sketch is off";
+      }
+    }
+  });
+
   let btn = document.getElementById("select");
   btn.addEventListener("click", function () {
     let size = getSize();
@@ -38,17 +53,30 @@ function getSize() {
 }
 
 function colorDiv() {
-  if (color == "random") {
-    console.log("random");
-    this.style.backgroundColor = "#0b03fc";
-  } else {
-    console.log("black");
-    this.style.backgroundColor = "#8B0000";
+  if (click) {
+    if (color == "random") {
+      const randomBetween = (min, max) =>
+        min + Math.floor(Math.random() * (max - min + 1));
+      const r = randomBetween(0, 255);
+      const g = randomBetween(0, 255);
+      const b = randomBetween(0, 255);
+      const rgb = `rgb(${r},${g},${b})`;
+      console.log("random");
+      this.style.backgroundColor = rgb;
+    } else {
+      console.log("black");
+      this.style.backgroundColor = "black";
+    }
   }
 }
 
 function setColor(selectedColor) {
   color = selectedColor;
+}
+
+function reset() {
+  let divs = document.querySelectorAll("div");
+  divs.forEach((div) => (div.style.backgroundColor = "white"));
 }
 
 // input.addEventListener("input", updateValue);
